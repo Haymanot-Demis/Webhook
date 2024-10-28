@@ -121,7 +121,7 @@ Value: HMAC SHA256 signature generated of the payload with the SECRET_KEY.
 ### Steps to run with docker
 
 ```bash
-dokcer compose up --build
+docker compose up --build
 ```
 
 The server will run on port 3000

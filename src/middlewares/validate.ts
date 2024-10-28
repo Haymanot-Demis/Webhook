@@ -20,6 +20,7 @@ export const validateData = (schema: Joi.ObjectSchema<any>) => {
 export const validateIPAddress = (validIPs: string[]) => {
 	return catchAsync((req: Request, res: Response, next: NextFunction) => {
 		const ipAddress = req.ip;
+		console.log("IP Address:", ipAddress);
 
 		if (!validIPs.includes(ipAddress)) {
 			return res.status(422).json({ error: "Unallowed IP address" });

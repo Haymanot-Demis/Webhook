@@ -1,5 +1,5 @@
 import { Transaction } from "../models/transaction.model";
-import { verifySignature, isReplayAttack } from "../utils/verifySignature";
+import { verifySignature, isReplayAttack } from "../utils/signature";
 import transactionRepository from "../repository/transaction.repository";
 import { YAYA_SECRET_KEY, YAYA_WALLET_TOLERANCE } from "../config/config";
 import { Request, Response } from "express";

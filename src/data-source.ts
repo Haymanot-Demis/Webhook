@@ -10,12 +10,13 @@ import {
 
 export const AppDataSource = new DataSource({
 	type: "postgres",
+	// url: process.env.DB_URL,
 	host: DB_HOST,
 	port: +DB_PORT,
 	username: DB_USERNAME,
 	password: DB_PASSWORD,
 	database: DB_NAME,
-	synchronize: false,
+	synchronize: true,
 	logging: false,
 	entities: [__dirname + "/models/*.ts"],
 	migrations: [__dirname + "/migration/*.ts"],

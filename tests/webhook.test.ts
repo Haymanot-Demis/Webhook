@@ -1,17 +1,11 @@
 import request from "supertest";
 import app from "../src/app";
 import { AppDataSource } from "../src/data-source";
-import { createHmac } from "crypto";
 import dotenv from "dotenv";
 import { YAYA_SECRET_KEY } from "../src/config/config";
+import { generateSignature } from "../src/utils/signature";
 
 dotenv.config();
-
-// Generate HMAC SHA256 signature for test cases
-const generateSignature = (payload: object, secretKey: string) => {
-	const payloadString = Object.values(payload).join("");
-	return createHmac("sha256", secretKey).update(payloadString).digest("hex");
-};
 
 describe("Webhook API Tests", () => {
 	const secretKey = YAYA_SECRET_KEY;

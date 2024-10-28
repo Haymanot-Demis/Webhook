@@ -1,4 +1,4 @@
-import crypto from "crypto";
+import crypto, { createHmac } from "crypto";
 
 export const verifySignature = (
 	payload: any,
@@ -20,4 +20,9 @@ export const isReplayAttack = (
 ): boolean => {
 	const currentTimestamp = Date.now();
 	return currentTimestamp - timestamp > tolerance;
+};
+
+export const generateSignature = (payload: object, secretKey: string) => {
+	const payloadString = Object.values(payload).join("");
+	return createHmac("sha256", secretKey).update(payloadString).digest("hex");
 };

@@ -17,10 +17,10 @@ export class Transaction {
 	@Column()
 	currency: string;
 
-	@Column({ type: "int" })
+	@Column({ type: "bigint" })
 	created_at_time: number;
 
-	@Column({ type: "int" })
+	@Column({ type: "bigint" })
 	timestamp: number;
 
 	@Column()
